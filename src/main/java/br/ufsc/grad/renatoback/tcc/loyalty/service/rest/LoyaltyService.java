@@ -20,8 +20,9 @@ public class LoyaltyService {
 		average.accumulateAndGet(System.nanoTime() - time, (n, m) -> (n + m) / (n == 0 || m == 0 ? 1 : 2));
 	}
 
-	public void printStatistics() {
-		logger.info(String.format("Created %d balances in an average of %d ns each", counter.get(), average.get()));
+	public void printStatistics(Integer threads, Integer sleep) {
+		logger.info(String.format("LOYALTY [%d threads][%d sleep] - [%d packages][%d average ns]", threads, sleep,
+				counter.get(), average.get()));
 	}
 
 	public void resetStatistics() {
