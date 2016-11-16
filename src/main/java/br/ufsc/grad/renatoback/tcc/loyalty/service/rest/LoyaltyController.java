@@ -32,4 +32,10 @@ public class LoyaltyController {
 		service.printStatistics(threads, sleep);
 	}
 
+	@RequestMapping(method = RequestMethod.OPTIONS)
+	@ResponseStatus(code = HttpStatus.OK)
+	public void printTime() {
+		System.out.println("Nano time: " + System.nanoTime());
+	}
+
 }
